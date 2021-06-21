@@ -1,32 +1,49 @@
 import React from 'react';
-import {
-  Text,
-  Image,
-  View,
-  TouchableOpacity,
-  TouchableOpacityProps,
+import { 
+  View, 
+  Text, 
+  Image,  
+  StatusBar,
 } from 'react-native';
 
-import DiscordImg from '../../assets/discord.png';
+import IllustrationImg from '../../assets/illustration.png';
 import { styles } from './styles';
 
-type Props = TouchableOpacityProps & {
-  title: string;
-}
+import { ButtonIcon } from '../../components/ButtonIcon';
 
-export function ButtonIcon({ title, ...rest } : Props){
+export function SignIn(){
   return(
-    <TouchableOpacity 
-      style={styles.container} 
-      {...rest }
-    >
-      <View style={styles.iconWrapper}>
-        <Image source={DiscordImg} style={styles.icon} />
-      </View>
+    <View style={styles.container}>
+      <StatusBar 
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
+      
+      <Image 
+        source={IllustrationImg} 
+        style={styles.image} 
+        resizeMode="stretch"
+      />
 
-      <Text style={styles.title}>
-        { title }
-      </Text>
-    </TouchableOpacity>
+      <View style={styles.content}>
+        <Text style={styles.title}>
+          Organize {`\n`}
+          suas jogatinas {`\n`} 
+          facilmente
+        </Text>
+
+        <Text style={styles.subtitle}>
+          Crie grupos para jogar seus games {`\n`} 
+          favoritos com seus amigos
+        </Text>
+
+        <ButtonIcon 
+          title="Entrar com Discord"
+          activeOpacity={0.7}
+        />                
+               
+      </View>
+    </View>
   );
 }
